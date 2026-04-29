@@ -1698,7 +1698,7 @@ document.addEventListener('touchstart', startMusicOnInteraction);
 const bgMusic = document.getElementById("bgMusic");
 
 // First audio
-bgMusic.src = "Audio-1.mp3";
+bgMusic.src = "assets/Audio-1.mp3";
 bgMusic.loop = false;
 
 // Play on first click
@@ -1710,7 +1710,7 @@ document.addEventListener("click", () => {
 
 // After Audio-1 ends → switch to Audio-2 (loop)
 bgMusic.addEventListener("ended", () => {
-    bgMusic.src = "Audio-2.mp3";
+    bgMusic.src = "assests/Audio-2.mp3";
     bgMusic.loop = true;
     bgMusic.play();
 });
