@@ -427,7 +427,7 @@ h1 {
 /* Drop overlay animation */
 @keyframes dropReveal {
   0% { transform: translateY(40px) scale(0.70); opacity: 0; }
-  70% { transform: translateY(-4px) scale(0.90); }
+  70% { transform: translateY(-4px) scale(1.00); }
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
@@ -437,6 +437,51 @@ h1 {
   box-shadow: 0 0 0 4px rgba(30,144,255,0.35), 0 10px 0 rgba(30,144,255,0.18), 0 18px 36px rgba(0,0,0,0.13) !important;
   transform: scale(1.0);
   transition: transform 0.15s, box-shadow 0.15s;
+}
+  
+/* Description area (the drop zone) */
+.question-desc-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 130px;
+  padding: 12px 14px 10px;
+  background: #f8f9ff;
+}
+  /* Dropped image container - covers desc area */
+.dropped-img-wrap {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.97);
+  border-radius: 0 0 18px 18px;
+  padding: 8px;
+  animation: dropReveal 0.35s cubic-bezier(.36,.07,.19,.97);
+  z-index: 5;
+}
+.dropped-img-wrap.show { display: flex; }
+.dropped-img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;   /* NO CROPPING — full image always visible */
+  border-radius: 10px;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+/* Feedback ring on card */
+.dropped-img-wrap.correct-glow {
+  background: rgba(67,233,123,0.18);
+  box-shadow: inset 0 0 0 3px #43e97b;
+}
+.dropped-img-wrap.wrong-glow {
+  background: rgba(255,71,87,0.14);
+  box-shadow: inset 0 0 0 3px #ff4757;
 }
 
 .hidden{display:none!important;}
